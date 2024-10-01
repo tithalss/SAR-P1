@@ -7,7 +7,7 @@ import java.sql.SQLException;
 public class DatabaseConnection {
     public static void main(String[] args) {
         // String de conexão para o Supabase
-        String url = "jdbc:postgresql://aws-0-sa-east-1.pooler.supabase.com:5432/postgres?user=postgres&password=wOqdEb9ruJTPwlFx";
+        String url = "jdbc:postgresql://aws-0-sa-east-1.pooler.supabase.com:5432/postgres?user=postgres.eqxskcklrytovvufbtly&password=wOqdEb9ruJTPwlFx";
 
         // Abrir conexão
         try {
