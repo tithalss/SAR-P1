@@ -124,4 +124,20 @@ public class Voluntario {
     public void setSenha(String senha) {
         this.senha = senha;
     }
+
+    @Override
+    public String toString() {
+        return "Voluntario{" +
+                "id=" + id +
+                ", nomeCompleto='" + nomeCompleto + '\'' +
+                ", pais='" + pais + '\'' +
+                ", documentacao='" + documentacao + '\'' +
+                ", dataNascimento=" + dataNascimento +
+                ", telefone='" + telefone + '\'' +
+                ", escolaridade='" + escolaridade + '\'' +
+                ", formacao='" + formacao + '\'' +
+                ", email='" + email + '\'' +
+                ", senha='" + senha + '\'' +
+                '}';
+    }
 }

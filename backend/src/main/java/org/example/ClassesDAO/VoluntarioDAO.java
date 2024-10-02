@@ -56,6 +56,35 @@ public class VoluntarioDAO {
         return voluntarios;
     }
 
+    public Voluntario buscarPorEmail(String email) {
+        String sql = "SELECT * FROM voluntario WHERE email = ?";
+
+        try (Connection conn = DatabaseConnection.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, email);
+            ResultSet rs = stmt.executeQuery();
+
+            if (rs.next()) {
+                Voluntario voluntario = new Voluntario();
+                voluntario.setId(rs.getInt("id"));
+                voluntario.setNomeCompleto(rs.getString("nomeCompleto"));
+                voluntario.setPais(rs.getString("pais"));
+                voluntario.setDocumentacao(rs.getString("documentacao"));
+                voluntario.setDataNascimento(rs.getDate("dataNascimento").toLocalDate());
+                voluntario.setTelefone(rs.getString("telefone"));
+                voluntario.setEscolaridade(rs.getString("escolaridade"));
+                voluntario.setFormacao(rs.getString("formacao"));
+                voluntario.setEmail(rs.getString("email"));
+                voluntario.setSenha(rs.getString("senha"));
+                return voluntario;
+            }
+        } catch (SQLException e) {
+            System.err.println("Erro ao buscar voluntário por email: " + e.getMessage());
+        }
+        return null; // Retorna null se não encontrar
+    }
+
     public void atualizarVoluntario(Voluntario voluntario) {
         String sql = "UPDATE voluntario SET nomeCompleto = ?, pais = ?, documentacao = ?, dataNascimento = ?, telefone = ?, escolaridade = ?, formacao = ?, email = ?, senha = ? WHERE id = ?";
 

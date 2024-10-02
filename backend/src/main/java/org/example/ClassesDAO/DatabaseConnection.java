@@ -14,7 +14,7 @@ public class DatabaseConnection {
         Connection conn = null;
 
         try {
-            // Carrega o driver (pode não ser necessário em versões mais recentes)
+            // Certifica o registro do driver do postgre (desnecessário a depender da versão)
             Class.forName("org.postgresql.Driver");
 
             conn = DriverManager.getConnection(URL, USER, PASSWORD);
