@@ -8,7 +8,7 @@ CREATE TABLE refugiado (
     documentacao VARCHAR(255),
     dataNascimento DATE NOT NULL,
     formacao VARCHAR(255),
-    email VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
     senha VARCHAR(255) NOT NULL,
     fotoPerfil BYTEA NOT NULL
 );
@@ -22,7 +22,7 @@ CREATE TABLE instituicao (
     cep VARCHAR(10) NOT NULL,
     nomeRepresentante VARCHAR(100) NOT NULL,
     cpfRepresentante VARCHAR(11) NOT NULL,
-    email VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
     senha VARCHAR(255) NOT NULL
 );
 
@@ -35,7 +35,7 @@ CREATE TABLE voluntario_empresa (
     telefone VARCHAR(15),
     escolaridade VARCHAR(50) NOT NULL,
     formacao VARCHAR(255),
-    email VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
     senha VARCHAR(255) NOT NULL,
     id_instituicao INTEGER,
     FOREIGN KEY (id_instituicao) REFERENCES instituicao(id)
@@ -50,6 +50,6 @@ CREATE TABLE voluntario (
     telefone VARCHAR(15),
     escolaridade VARCHAR(50) NOT NULL,
     formacao VARCHAR(255),
-    email VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL,
     senha VARCHAR(255) NOT NULL
 );
