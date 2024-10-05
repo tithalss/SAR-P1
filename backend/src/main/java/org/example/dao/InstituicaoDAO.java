@@ -1,7 +1,7 @@
-package org.example.ClassesDAO;
+package org.example.dao;
 
-import org.example.Instituicao;
-import org.example.repositories.InstituicaoRepository;
+import org.example.model.Instituicao;
+import org.example.repository.InstituicaoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

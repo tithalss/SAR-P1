@@ -1,8 +1,8 @@
 package org.example;
 
-import org.example.ClassesDAO.VoluntarioDAO;
-import org.example.Services.Autenticacao;
-import org.example.Voluntario;
+import org.example.dao.VoluntarioDAO;
+import org.example.service.Autenticacao;
+import org.example.model.Voluntario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

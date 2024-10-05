@@ -1,7 +1,7 @@
-package org.example.Services;
+package org.example.service;
 
-import org.example.Voluntario;
-import org.example.repositories.VoluntarioRepository;
+import org.example.model.Voluntario;
+import org.example.repository.VoluntarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

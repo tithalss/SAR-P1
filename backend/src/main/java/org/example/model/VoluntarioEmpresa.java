@@ -1,26 +1,26 @@
-package org.example;
+package org.example.model;
 
 import jakarta.persistence.*;
-
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "voluntario")
-public class Voluntario {
+@Table(name = "voluntario_empresa")
+public class VoluntarioEmpresa {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "nomeCompleto")
+    @Column(name = "nomeCompleto", nullable = false)
     private String nomeCompleto;
 
-    @Column(name = "pais")
+    @Column(name = "pais", nullable = false)
     private String pais;
 
-    @Column(name = "documentacao")
+    @Column(name = "documentacao", nullable = false)
     private String documentacao;
 
-    @Column(name = "dataNascimento")
+    @Column(name = "dataNascimento", nullable = false)
     private LocalDate dataNascimento;
 
     @Column(name = "telefone")
@@ -35,14 +35,17 @@ public class Voluntario {
     @Column(name = "email", unique = true, nullable = false)
     private String email;
 
-    @Column(name = "senha")
+    @Column(name = "senha", nullable = false)
     private String senha;
 
-    public Voluntario() {}
+    @Column(name = "id_instituicao", nullable = false)
+    private int idInstituicao;
 
-    // Construtor sem o ID
-    public Voluntario(String nomeCompleto, String pais, String documentacao, LocalDate dataNascimento, String telefone,
-                      String escolaridade, String formacao, String email, String senha) {
+    public VoluntarioEmpresa() {}
+
+    // Construtor sem id
+    public VoluntarioEmpresa(String nomeCompleto, String pais, String documentacao, LocalDate dataNascimento, String telefone,
+                             String escolaridade, String formacao, String email, String senha, int idInstituicao) {
         this.nomeCompleto = nomeCompleto;
         this.pais = pais;
         this.documentacao = documentacao;
@@ -52,11 +55,12 @@ public class Voluntario {
         this.formacao = formacao;
         this.email = email;
         this.senha = senha;
+        this.idInstituicao = idInstituicao;
     }
 
-    // Construtor com o ID
-    public Voluntario(int id, String nomeCompleto, String pais, String documentacao, LocalDate dataNascimento, String telefone,
-                      String escolaridade, String formacao, String email, String senha) {
+    // Construtor com id
+    public VoluntarioEmpresa(int id, String nomeCompleto, String pais, String documentacao, LocalDate dataNascimento, String telefone,
+                             String escolaridade, String formacao, String email, String senha, int idInstituicao) {
         this.id = id;
         this.nomeCompleto = nomeCompleto;
         this.pais = pais;
@@ -67,6 +71,7 @@ public class Voluntario {
         this.formacao = formacao;
         this.email = email;
         this.senha = senha;
+        this.idInstituicao = idInstituicao;
     }
 
     public int getId() {
@@ -149,19 +154,11 @@ public class Voluntario {
         this.senha = senha;
     }
 
-    @Override
-    public String toString() {
-        return "Voluntario{" +
-                "id=" + id +
-                ", nomeCompleto='" + nomeCompleto + '\'' +
-                ", pais='" + pais + '\'' +
-                ", documentacao='" + documentacao + '\'' +
-                ", dataNascimento=" + dataNascimento +
-                ", telefone='" + telefone + '\'' +
-                ", escolaridade='" + escolaridade + '\'' +
-                ", formacao='" + formacao + '\'' +
-                ", email='" + email + '\'' +
-                ", senha='" + senha + '\'' +
-                '}';
+    public int getIdInstituicao() {
+        return idInstituicao;
+    }
+
+    public void setIdInstituicao(int idInstituicao) {
+        this.idInstituicao = idInstituicao;
     }
 }
