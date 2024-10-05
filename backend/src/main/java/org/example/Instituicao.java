@@ -1,20 +1,36 @@
 package org.example;
 
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "instituicao")
 public class Instituicao {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY) // Geração automática do ID
     private int id;
+
     private String nome;
     private String descricao;
     private int numeroRegistro;
+
+    @Column(unique = true, nullable = false) // CNPJ deve ser único e não nulo
     private String cnpj;
+
     private String cep;
     private String nomeRepresentante;
+
+    @Column(unique = true, nullable = false) // CPF do representante também único e obrigatório
     private String cpfRepresentante;
+
+    @Column(unique = true, nullable = false) // Email único e obrigatório
     private String email;
+
     private String senha;
 
+    // Construtor sem id
     public Instituicao() {}
 
-    // Construtor sem id
     public Instituicao(String nome, String descricao, int numeroRegistro, String cnpj, String cep,
                        String nomeRepresentante, String cpfRepresentante, String email, String senha) {
         this.nome = nome;
@@ -43,6 +59,7 @@ public class Instituicao {
         this.senha = senha;
     }
 
+    // Getters e Setters
     public int getId() {
         return id;
     }

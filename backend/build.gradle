@@ -1,5 +1,8 @@
 plugins {
+    id 'org.springframework.boot' version '3.1.0' // Plugin Spring Boot
+    id 'io.spring.dependency-management' version '1.1.0' // Gerenciamento de dependências do Spring
     id 'java'
+    id 'application'
 }
 
 group = 'org.example'
@@ -9,13 +12,24 @@ repositories {
     mavenCentral()
 }
 
+application {
+    mainClass = 'org.example.Application' // Atualize para Application
+}
+
+run {
+    standardInput = System.in
+}
+
 java {
     sourceCompatibility = JavaVersion.VERSION_21
     targetCompatibility = JavaVersion.VERSION_21
 }
 
 dependencies {
-    implementation 'org.postgresql:postgresql:42.7.2'
+    implementation 'org.springframework.boot:spring-boot-starter-web' // Spring Boot para APIs REST
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // Spring Data JPA para banco de dados
+    implementation 'org.postgresql:postgresql:42.7.2' // Driver PostgreSQL
+    implementation 'org.springframework.boot:spring-boot-starter-security'
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
 }

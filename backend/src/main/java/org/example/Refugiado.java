@@ -1,47 +1,43 @@
 package org.example;
 
+import jakarta.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "refugiado")
 public class Refugiado {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name = "nomeCompleto", nullable = false)
     private String nomeCompleto;
+
+    @Column(name = "pais", nullable = false)
     private String pais;
+
+    @Column(name = "motivoRefugio", nullable = false)
     private String motivoRefugio;
+
+    @Column(name = "documentacao")
     private String documentacao;
+
+    @Column(name = "dataNascimento", nullable = false)
     private LocalDate dataNascimento;
+
+    @Column(name = "formacao")
     private String formacao;
+
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
+
+    @Column(name = "senha", nullable = false)
     private String senha;
+
+    @Column(name = "fotoPerfil")
     private byte[] fotoPerfil;
 
     public Refugiado() {}
-
-    // Construtor sem o ID
-    public Refugiado(String nomeCompleto, String pais, String motivoRefugio, String documentacao, LocalDate dataNascimento, String formacao, String email, String senha, byte[] fotoPerfil) {
-        this.nomeCompleto = nomeCompleto;
-        this.pais = pais;
-        this.motivoRefugio = motivoRefugio;
-        this.documentacao = documentacao;
-        this.dataNascimento = dataNascimento;
-        this.formacao = formacao;
-        this.email = email;
-        this.senha = senha;
-        this.fotoPerfil = fotoPerfil;
-    }
-
-    // Construtor com o ID
-    public Refugiado(int id, String nomeCompleto, String pais, String motivoRefugio, String documentacao, LocalDate dataNascimento, String formacao, String email, String senha, byte[] fotoPerfil) {
-        this.id = id;
-        this.nomeCompleto = nomeCompleto;
-        this.pais = pais;
-        this.motivoRefugio = motivoRefugio;
-        this.documentacao = documentacao;
-        this.dataNascimento = dataNascimento;
-        this.formacao = formacao;
-        this.email = email;
-        this.senha = senha;
-        this.fotoPerfil = fotoPerfil;
-    }
 
     public int getId() {
         return id;

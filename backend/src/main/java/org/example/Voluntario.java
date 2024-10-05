@@ -1,17 +1,41 @@
 package org.example;
 
+import jakarta.persistence.*;
+
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "voluntario")
 public class Voluntario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+
+    @Column(name = "nomeCompleto")
     private String nomeCompleto;
+
+    @Column(name = "pais")
     private String pais;
+
+    @Column(name = "documentacao")
     private String documentacao;
+
+    @Column(name = "dataNascimento")
     private LocalDate dataNascimento;
+
+    @Column(name = "telefone")
     private String telefone;
+
+    @Column(name = "escolaridade")
     private String escolaridade;
+
+    @Column(name = "formacao")
     private String formacao;
+
+    @Column(name = "email", unique = true, nullable = false)
     private String email;
+
+    @Column(name = "senha")
     private String senha;
 
     public Voluntario() {}
