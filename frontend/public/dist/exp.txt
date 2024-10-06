@@ -1,1 +1,0 @@
-Destino dos código transpilados de TS para JS.

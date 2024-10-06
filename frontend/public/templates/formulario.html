@@ -9,17 +9,20 @@
 <body>
     <div class="form">
         <form class="login-form">
-            <input type="text" placeholder="Nome completo"/>
-            <input type="text" placeholder="Email"/>
-            <input type="text" placeholder="CPF"/>
-            <input type="password" placeholder="Senha"/>
+            <input type="text" name="nome" placeholder="Nome completo"/>
+            <input type="text" name="pais" placeholder="País">
+            <input type="text" name="cpf" placeholder="CPF"/>
+            <input type="date" name="data" placeholder="Data de nascimento">
+            <input type="tel" name="telefone" placeholder="Número de telefone">
+            <input type="text" name="ecolaridade" placeholder="Escolaridade">
+            <input type="text" name="formacao" placeholder="Formação">
+            <input type="email" name="email" placeholder="Email"/>
+            <input type="password" name="senha" placeholder="Senha"/>
             <input type="password" placeholder="Confirme a senha"/>
-            <input type="text" placeholder="País"/>
-            <input type="text" placeholder="CEP"/>
             <button>Cadastrar</button>
-            <p class="message">Já possui uma conta? <a href="#">Faça login</a></p>
+            <p class="message">Já possui uma conta? <a href="../templates/login.html">Faça login</a></p>
         </form>
     </div>
-    <script src="../dist/example.js"></script>
+    <script src="../dist/formulario.js"></script>
 </body>
 </html>

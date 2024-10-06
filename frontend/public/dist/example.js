@@ -1,1 +1,0 @@
-(()=>{"use strict";console.log("Thales, Henrique, Guilherme e Davi.")})();
