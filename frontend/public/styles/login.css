@@ -11,6 +11,12 @@ body {
     background-color: #23b6e2;
 }
 
+.logo {
+    width: 105px;
+    height: 110px;
+    margin-bottom: 25px;
+}
+
 .form {
     background: #FFFFFF;
     width: 385px;
@@ -46,8 +52,6 @@ body {
     padding: 15px;
     color: #FFFFFF;
     font-size: 14px;
-    -webkit-transition: all 0.3 ease;
-    transition: all 0.3 ease;
     cursor: pointer;
 }
 

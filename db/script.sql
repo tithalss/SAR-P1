@@ -18,7 +18,7 @@ CREATE TABLE instituicao (
     nome VARCHAR(100) NOT NULL,
     descricao VARCHAR(255) NOT NULL,
     numeroRegistro INTEGER NOT NULL,
-    cnpj VARCHAR(14) NOT NULL,
+    cnpj VARCHAR(14) NOT NULL UNIQUE,
     cep VARCHAR(10) NOT NULL,
     nomeRepresentante VARCHAR(100) NOT NULL,
     cpfRepresentante VARCHAR(11) NOT NULL,
@@ -38,7 +38,7 @@ CREATE TABLE voluntario_empresa (
     email VARCHAR(100) UNIQUE NOT NULL,
     senha VARCHAR(255) NOT NULL,
     id_instituicao INTEGER,
-    FOREIGN KEY (id_instituicao) REFERENCES instituicao(id)
+    FOREIGN KEY (id_instituicao) REFERENCES instituicao(id) ON DELETE CASCADE
 );
 
 CREATE TABLE voluntario (
