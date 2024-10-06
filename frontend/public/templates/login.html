@@ -7,15 +7,15 @@
     <link rel="stylesheet" href="../styles/login.css">
 </head>
 <body>
-    <div class="form">
-        <img src="../assets/logo.png" alt="logo" class="logo"></img>
-        <form class="login-form" method="POST" action="/login">
-        <input type="text" placeholder="email" required name="email"/>
-        <input type="password" placeholder="senha" required name="senha"/>
-        <button>entrar</button>
+<div class="form">
+    <img src="../assets/logo.png" alt="logo" class="logo">
+    <form class="login-form" id="loginForm">
+        <input type="text" placeholder="email" required name="email" id="email"/>
+        <input type="password" placeholder="senha" required name="senha" id="senha"/>
+        <button type="submit">Entrar</button>
         <p class="message">Não possui cadastro? <a href="../templates/formulario.html">Crie uma conta</a></p>
-        </form>
-    </div>
-    <script src="../dist/login.js"></script>
+    </form>
+</div>
+<script src="../dist/login.js"></script>
 </body>
 </html>

@@ -22,4 +22,11 @@ module.exports = {
     filename: '[name].js',
     path: path.resolve(__dirname, 'public', 'dist'),
   },
+  devServer: {
+    static: {
+      directory: path.join(__dirname, 'public', 'dist'),
+    },
+    compress: true,
+    port: 8080,
+  },
 };

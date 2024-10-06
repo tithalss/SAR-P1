@@ -1,6 +1,6 @@
 plugins {
-    id 'org.springframework.boot' version '3.1.0' // Plugin Spring Boot
-    id 'io.spring.dependency-management' version '1.1.0' // Gerenciamento de dependências do Spring
+    id 'org.springframework.boot' version '3.1.0'
+    id 'io.spring.dependency-management' version '1.1.0'
     id 'java'
     id 'application'
 }
@@ -13,7 +13,7 @@ repositories {
 }
 
 application {
-    mainClass = 'org.example.Application' // Atualize para Application
+    mainClass = 'org.example.Application'
 }
 
 run {
@@ -26,12 +26,11 @@ java {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web' // Spring Boot para APIs REST
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // Spring Data JPA para banco de dados
-    implementation 'org.postgresql:postgresql:42.7.2' // Driver PostgreSQL
-    implementation 'org.springframework.boot:spring-boot-starter-security'
-    testImplementation platform('org.junit:junit-bom:5.10.0')
-    testImplementation 'org.junit.jupiter:junit-jupiter'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.postgresql:postgresql:42.7.2'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.security:spring-security-test'
 }
 
 test {

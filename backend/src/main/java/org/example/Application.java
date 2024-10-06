@@ -24,7 +24,7 @@ public class Application implements CommandLineRunner {
     public void run(String... args) {
         // Chame seus métodos de teste aqui
         testaCrudVoluntario();
-        autenticarUsuario();
+        //autenticarUsuario();
     }
 
     public void autenticarUsuario() {
@@ -41,14 +41,14 @@ public class Application implements CommandLineRunner {
 
     public void testaCrudVoluntario() {
         Voluntario novoVoluntario = new Voluntario(
-                "Ives São Paulino Yates",
-                "Alemanha",
+                "Malandro",
+                "Portugal",
                 "05805705912",
                 LocalDate.of(2000, 3, 10),
                 "99999999998",
                 "Ensino Superior",
-                "Engenharia Aeroespacial",
-                "travestipirocudo@email.com",
+                "Bacalhau",
+                "mail@email.com",
                 "senha"
         );
         voluntarioDAO.inserirVoluntario(novoVoluntario);
@@ -59,36 +59,7 @@ public class Application implements CommandLineRunner {
         for (Voluntario voluntario : voluntarios) {
             System.out.println(voluntario);
         }
-
-        if (!voluntarios.isEmpty()) {
-            Voluntario voluntarioParaAtualizar = voluntarios.get(0);
-            voluntarioParaAtualizar.setNomeCompleto("Tom Platz");
-            voluntarioParaAtualizar.setEmail("geleca@email.com");
-            voluntarioDAO.atualizarVoluntario(voluntarioParaAtualizar);
-            System.out.println("Atualizando informações do voluntário...\nVoluntário atualizado com sucesso!");
-
-            // Exibir os voluntários após a atualização
-            List<Voluntario> voluntariosAtualizados = voluntarioDAO.buscarTodosVoluntarios();
-            System.out.println("Lista de voluntários após atualização:");
-            for (Voluntario voluntario : voluntariosAtualizados) {
-                System.out.println(voluntario);
-            }
-        }
-
-        if (!voluntarios.isEmpty()) {
-            Voluntario voluntarioParaExcluir = voluntarios.get(0);
-            voluntarioDAO.excluirVoluntario(voluntarioParaExcluir.getId());
-            System.out.println("Excluindo voluntário...\nVoluntário excluído com sucesso!");
-
-            // Exibir os voluntários após a exclusão
-            List<Voluntario> voluntariosAtualizados = voluntarioDAO.buscarTodosVoluntarios();
-            System.out.println("Lista de voluntários após atualização:");
-            for (Voluntario voluntario : voluntariosAtualizados) {
-                System.out.println(voluntario);
-            }
-        }
     }
-
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
