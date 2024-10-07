@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Random;
 
 @SpringBootApplication
 public class Application implements CommandLineRunner {
@@ -22,33 +23,23 @@ public class Application implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        // Chame seus métodos de teste aqui
         testaCrudVoluntario();
-        //autenticarUsuario();
-    }
-
-    public void autenticarUsuario() {
-        String email = "email@email.com";
-        String senha = "senha";
-
-        Voluntario usuarioAutenticado = autenticacao.autenticar(email, senha);
-        if (usuarioAutenticado != null) {
-            System.out.println("Autenticando voluntário...\nUsuário autenticado com sucesso: " + usuarioAutenticado);
-        } else {
-            System.out.println("Falha na autenticação: email ou senha inválidos.");
-        }
     }
 
     public void testaCrudVoluntario() {
+        Random random = new Random();
+        int numeroAleatorio = random.nextInt(1000);
+
+        // Inserção com dados dinâmicos
         Voluntario novoVoluntario = new Voluntario(
-                "Malandro",
-                "Portugal",
-                "05805705912",
+                "Nome" + numeroAleatorio,
+                "Japão",
+                "05805705" + String.format("%03d", numeroAleatorio),
                 LocalDate.of(2000, 3, 10),
                 "99999999998",
                 "Ensino Superior",
                 "Bacalhau",
-                "mail@email.com",
+                "prot" + numeroAleatorio + "@mail.com",
                 "senha"
         );
         voluntarioDAO.inserirVoluntario(novoVoluntario);
