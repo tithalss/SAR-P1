@@ -1,0 +1,81 @@
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px;
+}
+
+h1, h2 {
+    text-align: center;
+    border: 100px;
+}
+
+#container2 {
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+#texto1 {
+    width: 200;
+    height: 200;
+    margin: 70px;
+}
+
+#texto2 {
+    width: 200;
+    height: 200;
+    margin: 70px;
+    
+}
+
+body{
+    background: #ffffff;
+}
+
+#btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.botao{
+    color:#ffffff;
+    background-color: #23b6e2;
+    display: block;
+    width: 320px;
+    height: 55px;
+    border-radius: 12px;
+}
+
+#tutorial {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img {
+    width: 120px;
+    height: 100px;
+}
+
+#menu {
+    background: #ffffff;
+    border: 1px black;
+    padding: 5px;
+}
+
+a {
+    color: #23b6e2;
+    text-decoration: none;
+}
+
+#logo {
+    display: flex;
+    justify-content:space-between;
+    align-items: center;
+    margin-left: 100px;
+    margin-right: 100px;
+    
+}
+
