@@ -11,12 +11,10 @@ async function login(email: string, senha: string) {
         if (response.ok) {
             const data = await response.json();
             console.log('Login bem-sucedido:', data);
-            // Redirecionar para a página que exibe os dados do voluntário
-            window.location.href = '../templates/posauth.html'; // Verifique o caminho correto
+            window.location.href = '../templates/home.html';
         } else {
             const errorData = await response.json();
             console.error('Falha no login:', errorData);
-            // Exibir alerta com a mensagem de erro
             window.alert('Login falhou: ' + errorData);
         }
     } catch (error) {
