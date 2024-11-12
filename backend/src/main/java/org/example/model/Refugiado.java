@@ -34,10 +34,30 @@ public class Refugiado {
     @Column(name = "senha", nullable = false)
     private String senha;
 
-    @Column(name = "fotoPerfil")
-    private byte[] fotoPerfil;
-
     public Refugiado() {}
+
+    public Refugiado(int id, String nomeCompleto, String pais, String motivoRefugio, String documentacao, LocalDate dataNascimento, String formacao, String email, String senha) {
+        this.id = id;
+        this.nomeCompleto = nomeCompleto;
+        this.pais = pais;
+        this.motivoRefugio = motivoRefugio;
+        this.documentacao = documentacao;
+        this.dataNascimento = dataNascimento;
+        this.formacao = formacao;
+        this.email = email;
+        this.senha = senha;
+    }
+
+    public Refugiado(String nomeCompleto, String pais, String motivoRefugio, String documentacao, LocalDate dataNascimento, String formacao, String email, String senha) {
+        this.nomeCompleto = nomeCompleto;
+        this.pais = pais;
+        this.motivoRefugio = motivoRefugio;
+        this.documentacao = documentacao;
+        this.dataNascimento = dataNascimento;
+        this.formacao = formacao;
+        this.email = email;
+        this.senha = senha;
+    }
 
     public int getId() {
         return id;
@@ -109,13 +129,5 @@ public class Refugiado {
 
     public void setSenha(String senha) {
         this.senha = senha;
-    }
-
-    public byte[] getFotoPerfil() {
-        return fotoPerfil;
-    }
-
-    public void setFotoPerfil(byte[] fotoPerfil) {
-        this.fotoPerfil = fotoPerfil;
     }
 }
