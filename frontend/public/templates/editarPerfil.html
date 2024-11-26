@@ -58,32 +58,52 @@
 
 <section class="dashboard">
     <div class="dash-content">
-        <div class="overview">
-            <div class="title">
-                <span class="text">Alterar Informações</span>
-            </div>
-            <div class="caixa1">
-                <span class="text">Nome da Instituição: </span>
-                <span class="text">Exemplo de Nome</span>
-            </div>
-            <br>
-            <div class="caixa2">
-                <span class="text">CNPJ: </span>
-                <span class="text">12313123123</span>
-            </div>
-            <br>
-            <div class="caixa3">
-                <span class="text">CEP: </span>
-                <span class="text">71907-000</span>
-            </div>
-            <br>
-            <div class="caixa4">
-                <span class="text">Nome do Representante: </span>
-                <span class="text">Rogerinho</span>
-            </div>
+        <div class="container">
+            <h1>Editar Perfil</h1>
+            <form action="#" method="POST" enctype="multipart/form-data">
+
+                <div class="form-group">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" value="Exemplo Empresa" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" value="exemplo@gmail.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password">CNPJ:</label>
+                    <input type="number" id="cnpj" name="cnpj" value="123123123123" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password">CEP:</label>
+                    <input type="number" id="cep" name="cep" value="71907000" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Senha Anterior:</label>
+                    <input type="password" id="password" name="password">
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password">Nova Senha:</label>
+                    <input type="password" id="new-password" name="confirm-password">
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password">Confirmar Senha:</label>
+                    <input type="password" id="confirm-password" name="confirm-password">
+                </div>
+
+                <button type="submit" class="btn">Salvar Alterações</button>
+            </form>
+        </div>
         </div>
     </div>
 </section>
+
 
 <script src="../dist/perfilEmpresa.js"></script>
 </body>
