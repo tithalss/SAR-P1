@@ -168,10 +168,11 @@ nav .menu-items{
 }
 
 .dash-content .title .text{
-    font-size: 24px;
-    font-weight: 500;
+    font-size: 150%;
+    font-weight: 120;
     color: var(--text-color);
-    margin-left: 10px;
+    margin-left: 120px;
+    margin-right: 120px;
 }
 
 .dash-content .boxes{
@@ -185,9 +186,9 @@ nav .menu-items{
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 12px;
-    width: calc(100% / 3 - 15px);
-    padding: 15px 20px;
+    border-radius: 10px;
+    width: calc(100% / 2 - 25px);
+    padding: 50px 50px;
     background-color: #23b6e2;
     transition: var(--tran-05);
 }
@@ -199,8 +200,10 @@ nav .menu-items{
 
 .boxes .box .text{
     white-space: nowrap;
-    font-size: 18px;
+    font-size: 30px;
     font-weight: 500;
+    width: 50;
+    height: 10;
     color: var(--text-color);
 }
 
@@ -252,4 +255,12 @@ nav .menu-items{
     border-radius: 4px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
     margin-bottom: 5px;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    color: #050505;
+    text-align: center;
+    font-size: 36px;
+    margin-top: 50px;
 }
