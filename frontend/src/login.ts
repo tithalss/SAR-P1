@@ -11,12 +11,14 @@ async function login(email: string, senha: string) {
         if (response.ok) {
             const data = await response.json();
             console.log('Login bem-sucedido:', data);
-            window.location.href = '../templates/home.html';
+            localStorage.setItem('id', data.id);
+            window.location.href = '../templates/homePerfil.html';
         } else {
             const errorData = await response.json();
             console.error('Falha no login:', errorData);
-            window.alert('Login falhou: ' + errorData);
+            window.alert('Login falhou: ' + errorData.message);
         }
+
     } catch (error) {
         console.error('Erro:', error);
     }
@@ -24,15 +26,16 @@ async function login(email: string, senha: string) {
 
 const loginForm = document.getElementById('loginForm') as HTMLFormElement;
 
-loginForm.addEventListener('submit', (event) => {
+loginForm.addEventListener('submit', async (event) => {
     event.preventDefault();
-    console.log('Formulário enviado');
 
-    const email = (document.getElementById('email') as HTMLInputElement).value;
-    const senha = (document.getElementById('senha') as HTMLInputElement).value;
+    const email = (document.getElementById('email') as HTMLInputElement).value.trim();
+    const senha = (document.getElementById('senha') as HTMLInputElement).value.trim();
 
-    console.log('Email:', email);
-    console.log('Senha:', senha);
+    if (!email || !senha) {
+        alert('Por favor, preencha todos os campos!');
+        return;
+    }
 
-    login(email, senha);
+    await login(email, senha);
 });

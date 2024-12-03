@@ -7,6 +7,8 @@ module.exports = {
     formulario: ['./src/formulario.ts'],
     perfilEmpresa: ['./src/perfilEmpresa.ts'],
     editarPerfil: ['./src/editarPerfil.ts'],
+    homePage: ['./src/homePage.ts'],
+    homePerfil: ['./src/homePage.ts'],
   },
   module: {
     rules: [

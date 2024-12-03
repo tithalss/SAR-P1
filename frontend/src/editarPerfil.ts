@@ -8,7 +8,13 @@ interface InstituicaoDTO {
 }
 
 function carregarDadosPerfil(): void {
-    const userId = 2; // Substitua pelo ID dinâmico do usuário
+    const userId = localStorage.getItem('id'); // Recupera o ID do localStorage
+
+    if (!userId || isNaN(Number(userId))) {
+        alert('ID do usuário não encontrado ou inválido.');
+        return;
+    }
+
     const apiUrl = `http://localhost:8080/api/editarPerfil?id=${userId}`;
 
     fetch(apiUrl, {
@@ -57,7 +63,7 @@ document.getElementById("salvarAlteracoes")?.addEventListener("click", function 
     const novaSenha = (document.getElementById("new-password") as HTMLInputElement).value;
     const confirmarSenha = (document.getElementById("confirm-password") as HTMLInputElement).value;
 
-    if (!senha || senha .trim() === "") {
+    if (!senha || senha.trim() === "") {
         alert("A senha antiga é obrigatória para atualizar qualquer informação.");
         return;
     }
@@ -76,9 +82,15 @@ document.getElementById("salvarAlteracoes")?.addEventListener("click", function 
         novaSenha: novaSenha || undefined,
     };
 
-    const usuarioId = 2;
+    const usuarioId = localStorage.getItem('id');
 
-    atualizarPerfil(usuarioId, dadosPerfil);
+    // Verifica se o ID existe e é válido
+    if (!usuarioId || isNaN(Number(usuarioId))) {
+        alert('ID do usuário não encontrado ou inválido.');
+        return;
+    }
+
+    atualizarPerfil(Number(usuarioId), dadosPerfil);
 });
 
 function atualizarPerfil(id: number, dadosPerfil: InstituicaoDTO): void {
