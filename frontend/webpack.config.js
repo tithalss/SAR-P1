@@ -6,6 +6,7 @@ module.exports = {
     login: ['./src/login.ts'],
     formulario: ['./src/formulario.ts'],
     perfilEmpresa: ['./src/perfilEmpresa.ts'],
+    editarPerfil: ['./src/editarPerfil.ts'],
   },
   module: {
     rules: [
