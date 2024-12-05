@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="../styles/seusRefugiados.css">
+
+
+  <title>Painel de perfil da empresa</title>
+</head>
+<body>
+<nav>
+  <div class="logo-name">
+    <div class="logo-image">
+      <img src="../assets/SAR-logo.png" alt="">
+    </div>
+
+    <span class="logo_name">SAR</span>
+  </div>
+
+  <div class="menu-items">
+    <ul class="nav-links">
+      <li><a href="../templates/homePerfil.html">
+        <i class="uil uil-estate"></i>
+        <span class="link-name">Home</span>
+      </a></li>
+      <li><a href="../templates/sessaoRefugiados.html">
+        <i class="uil uil-files-landscapes"></i>
+        <span class="link-name">Refugiados</span>
+      </a></li>
+      <li><a href="../templates/sessaoVoluntarios.html">
+        <i class="uil uil-chart"></i>
+        <span class="link-name">Voluntários</span>
+      </a></li>
+    </ul>
+
+    <ul class="logout-mode">
+      <li><a href="../templates/editarPerfil.html">
+        <i class="uil uil-signout"></i>
+        <span class="link-name">Editar perfil</span>
+      </a></li>
+
+      <li class="mode">
+        <a href="../templates/homePage.html">
+          <i class="uil uil-moon"></i>
+          <span class="link-name">Sair</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<section class="dashboard">
+  <div class="dash-content">
+    <div class="overview">
+      <div class="title">
+        <span class="text">Refugiados</span>
+      </div>
+
+      <div class="boxes">
+        <div class="box box1">
+          <i class="uil uil-thumbs-up"></i>
+          <span class="text">Cadastrados</span>
+          <span class="number">30,000</span>
+        </div>
+        <div class="box box2">
+          <i class="uil uil-comments"></i>
+          <span class="text">Pendentes</span>
+          <span class="number">20,000</span>
+        </div>
+        <div class="box box3">
+          <i class="uil uil-share"></i>
+          <span class="text">Total</span>
+          <span class="number">50,000</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="activity">
+      <div class="title">
+        <span class="text">Lista de refugiados cadastrados</span>
+      </div>
+      <div class="activity-data">
+        <div class="data names">
+          <span class="data-title">Nome</span>
+          <span class="data-list">Cristiano Ronaldo</span>
+          <span class="data-list">Lamine Yamal</span>
+          <span class="data-list">Vinicius Junior</span>
+          <span class="data-list">Memphis Depay</span>
+          <span class="data-list">Vladimir Putin</span>
+          <span class="data-list">Elon Musk</span>
+          <span class="data-list">Sean Combs</span>
+        </div>
+        <div class="data email">
+          <span class="data-title">País de origem</span>
+          <span class="data-list">Portugal</span>
+          <span class="data-list">Espanha</span>
+          <span class="data-list">Brasil</span>
+          <span class="data-list">Holanda</span>
+          <span class="data-list">Rússia</span>
+          <span class="data-list">África do sul</span>
+          <span class="data-list">Estados Unidos</span>
+        </div>
+        <div class="data joined">
+          <span class="data-title">Data de nascimento</span>
+          <span class="data-list">2022-02-12</span>
+          <span class="data-list">2022-02-12</span>
+          <span class="data-list">2022-02-13</span>
+          <span class="data-list">2022-02-13</span>
+          <span class="data-list">2022-02-14</span>
+          <span class="data-list">2022-02-14</span>
+          <span class="data-list">2022-02-15</span>
+        </div>
+        <div class="data status">
+          <span class="data-title">Status</span>
+          <span class="data-list">Cadastrado</span>
+          <span class="data-list">Pendente</span>
+          <span class="data-list">Cadastrado</span>
+          <span class="data-list">Cadastrado</span>
+          <span class="data-list">Pendente</span>
+          <span class="data-list">Cadastrado</span>
+          <span class="data-list">Em análise</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script src="../dist/perfilEmpresa.js"></script>
+</body>
+</html>
