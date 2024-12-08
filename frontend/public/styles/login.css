@@ -113,3 +113,27 @@ body {
 .container .info span .fa {
     color: #EF3B3A;
 }
+
+.custom-button {
+    background-color: #42c436;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.custom-button:hover {
+    background-color: #42c436;
+    transform: scale(1.05);
+}
+
+.custom-button:active {
+    background-color: #42c436;
+    transform: scale(0.95);
+}
