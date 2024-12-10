@@ -47,6 +47,7 @@ java {
     targetCompatibility = JavaVersion.VERSION_21
 }
 # Dependências
+
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
@@ -88,35 +89,35 @@ ENTRYPOINT ["java", "-jar", "app.jar"]
 # Configuração do Frontend
 O frontend é construído com Node.js e servido utilizando o Nginx.
 
-#Dockerfile do Frontend
-# Usando a imagem base do Node.js
+# Dockerfile do Frontend
+#Usando a imagem base do Node.js
 FROM node:18-alpine AS build
 
-# Definindo o diretório de trabalho
+#Definindo o diretório de trabalho
 WORKDIR /frontend
 
-# Copiar o arquivo de dependências para instalar
+#Copiar o arquivo de dependências para instalar
 COPY package.json package-lock.json ./
 
-# Instalar as dependências
+#Instalar as dependências
 RUN npm install
 
-# Copiar os arquivos restantes do frontend
+#Copiar os arquivos restantes do frontend
 COPY . .
 
-# Construir os arquivos para produção (gerar o dist)
+#Construir os arquivos para produção (gerar o dist)
 RUN npm run build
 
-# Usar o Nginx para servir o frontend
+#Usar o Nginx para servir o frontend
 FROM nginx:alpine
 
-# Copiar os arquivos gerados pelo build para o diretório do Nginx
+#Copiar os arquivos gerados pelo build para o diretório do Nginx
 COPY --from=build /frontend/public/dist /usr/share/nginx/html
 
-# Expor a porta 80 para o Nginx
+#Expor a porta 80 para o Nginx
 EXPOSE 80
 
-# Iniciar o Nginx
+#Iniciar o Nginx
 CMD ["nginx", "-g", "daemon off;"]
 
 # Como Construir e Executar o Frontend
