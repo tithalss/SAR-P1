@@ -19,44 +19,34 @@ public class Refugiado {
     @Column(name = "motivoRefugio", nullable = false)
     private String motivoRefugio;
 
-    @Column(name = "documentacao")
-    private String documentacao;
-
     @Column(name = "dataNascimento", nullable = false)
     private LocalDate dataNascimento;
 
     @Column(name = "formacao")
     private String formacao;
 
-    @Column(name = "email", unique = true, nullable = false)
+    @Column(name = "email", unique = true)
     private String email;
-
-    @Column(name = "senha", nullable = false)
-    private String senha;
 
     public Refugiado() {}
 
-    public Refugiado(int id, String nomeCompleto, String pais, String motivoRefugio, String documentacao, LocalDate dataNascimento, String formacao, String email, String senha) {
+    public Refugiado(String nomeCompleto, String pais, String motivoRefugio, LocalDate dataNascimento, String formacao, String email) {
+        this.nomeCompleto = nomeCompleto;
+        this.pais = pais;
+        this.motivoRefugio = motivoRefugio;
+        this.dataNascimento = dataNascimento;
+        this.formacao = formacao;
+        this.email = email;
+    }
+
+    public Refugiado(int id, String nomeCompleto, String pais, String motivoRefugio, LocalDate dataNascimento, String formacao, String email) {
         this.id = id;
         this.nomeCompleto = nomeCompleto;
         this.pais = pais;
         this.motivoRefugio = motivoRefugio;
-        this.documentacao = documentacao;
         this.dataNascimento = dataNascimento;
         this.formacao = formacao;
         this.email = email;
-        this.senha = senha;
-    }
-
-    public Refugiado(String nomeCompleto, String pais, String motivoRefugio, String documentacao, LocalDate dataNascimento, String formacao, String email, String senha) {
-        this.nomeCompleto = nomeCompleto;
-        this.pais = pais;
-        this.motivoRefugio = motivoRefugio;
-        this.documentacao = documentacao;
-        this.dataNascimento = dataNascimento;
-        this.formacao = formacao;
-        this.email = email;
-        this.senha = senha;
     }
 
     public int getId() {
@@ -91,14 +81,6 @@ public class Refugiado {
         this.motivoRefugio = motivoRefugio;
     }
 
-    public String getDocumentacao() {
-        return documentacao;
-    }
-
-    public void setDocumentacao(String documentacao) {
-        this.documentacao = documentacao;
-    }
-
     public LocalDate getDataNascimento() {
         return dataNascimento;
     }
@@ -121,13 +103,5 @@ public class Refugiado {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
     }
 }

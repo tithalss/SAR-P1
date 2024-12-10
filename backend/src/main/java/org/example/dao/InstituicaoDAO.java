@@ -21,6 +21,12 @@ public class InstituicaoDAO {
         return instituicaoRepository.findAll();
     }
 
+    public Instituicao buscarInstituicaoPorId(int id) {return instituicaoRepository.findById(id);}
+
+    public Instituicao buscarInstituicaoPorEmail(String email) {
+        return instituicaoRepository.findByEmail(email);
+    }
+
     public Instituicao atualizarInstituicao(Instituicao instituicao) {
         return instituicaoRepository.save(instituicao);
     }

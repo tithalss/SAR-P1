@@ -1,34 +1,35 @@
 package org.example.dao;
 
 import org.example.model.VoluntarioAssociado;
-import org.example.repository.VoluntarioEmpresaRepository;
+import org.example.repository.VoluntarioAssociadoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
 @Service
-public class VoluntarioEmpresaDAO {
+public class VoluntarioAssociadoDAO {
     @Autowired
-    private VoluntarioEmpresaRepository voluntarioEmpresaRepository;
+    private VoluntarioAssociadoRepository voluntarioAssociadoRepository;
 
     public VoluntarioAssociado inserirVoluntarioAssociado(VoluntarioAssociado voluntarioAssociado) {
-        return voluntarioEmpresaRepository.save(voluntarioAssociado);
+        return voluntarioAssociadoRepository.save(voluntarioAssociado);
     }
 
     public List<VoluntarioAssociado> buscarTodosVoluntariosAssociados() {
-        return voluntarioEmpresaRepository.findAll();
+        return voluntarioAssociadoRepository.findAll();
     }
 
-    public VoluntarioAssociado buscarPorEmail(String email) {
-        return voluntarioEmpresaRepository.findByEmail(email);
+    public VoluntarioAssociado buscarVoluntarioAssociadoPorEmail(String email) {
+        return voluntarioAssociadoRepository.findByEmail(email);
     }
 
     public void atualizarVoluntarioAssociado(VoluntarioAssociado voluntarioAssociado) {
-        voluntarioEmpresaRepository.save(voluntarioAssociado);
+        voluntarioAssociadoRepository.save(voluntarioAssociado);
     }
 
-    public void excluirVoluntarioAssociado(int id) {
-        voluntarioEmpresaRepository.deleteById(id);
+    public boolean excluirVoluntarioAssociadoPorEmail(String email) {
+        voluntarioAssociadoRepository.deleteByEmail(email);
+        return true;
     }
 }

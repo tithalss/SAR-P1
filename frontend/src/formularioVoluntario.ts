@@ -35,7 +35,7 @@ function enviarFormularioVoluntario(event: Event) {
             return response.json();
         })
         .then((data) => {
-            alert("Formulá de aplicação registrado com sucesso!");
+            alert("Formulário de aplicação registrado com sucesso!");
             window.location.href = "../templates/homePage.html";
         })
         .catch((error) => {

@@ -1,11 +1,12 @@
 package org.example.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import jakarta.persistence.*;
 import java.time.LocalDate;
 
 @Entity
-@Table(name = "voluntario_empresa")
-public class VoluntarioEmpresa {
+@Table(name = "voluntario_associado")
+public class VoluntarioAssociado {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -14,11 +15,8 @@ public class VoluntarioEmpresa {
     @Column(name = "nomeCompleto", nullable = false)
     private String nomeCompleto;
 
-    @Column(name = "pais", nullable = false)
-    private String pais;
-
-    @Column(name = "documentacao", nullable = false)
-    private String documentacao;
+    @Column(name = "cpf", unique = true, nullable = false)
+    private String cpf;
 
     @Column(name = "dataNascimento", nullable = false)
     private LocalDate dataNascimento;
@@ -26,52 +24,32 @@ public class VoluntarioEmpresa {
     @Column(name = "telefone")
     private String telefone;
 
-    @Column(name = "escolaridade")
-    private String escolaridade;
-
     @Column(name = "formacao")
     private String formacao;
 
     @Column(name = "email", unique = true, nullable = false)
     private String email;
 
-    @Column(name = "senha", nullable = false)
-    private String senha;
 
-    @Column(name = "id_instituicao", nullable = false)
-    private int idInstituicao;
+    public VoluntarioAssociado() {}
 
-    public VoluntarioEmpresa() {}
-
-    // Construtor sem id
-    public VoluntarioEmpresa(String nomeCompleto, String pais, String documentacao, LocalDate dataNascimento, String telefone,
-                             String escolaridade, String formacao, String email, String senha, int idInstituicao) {
+    public VoluntarioAssociado(String nomeCompleto, String cpf, LocalDate dataNascimento, String telefone, String formacao, String email) {
         this.nomeCompleto = nomeCompleto;
-        this.pais = pais;
-        this.documentacao = documentacao;
+        this.cpf = cpf;
         this.dataNascimento = dataNascimento;
         this.telefone = telefone;
-        this.escolaridade = escolaridade;
         this.formacao = formacao;
         this.email = email;
-        this.senha = senha;
-        this.idInstituicao = idInstituicao;
     }
 
-    // Construtor com id
-    public VoluntarioEmpresa(int id, String nomeCompleto, String pais, String documentacao, LocalDate dataNascimento, String telefone,
-                             String escolaridade, String formacao, String email, String senha, int idInstituicao) {
+    public VoluntarioAssociado(int id, String nomeCompleto, String cpf, LocalDate dataNascimento, String telefone, String formacao, String email) {
         this.id = id;
         this.nomeCompleto = nomeCompleto;
-        this.pais = pais;
-        this.documentacao = documentacao;
+        this.cpf = cpf;
         this.dataNascimento = dataNascimento;
         this.telefone = telefone;
-        this.escolaridade = escolaridade;
         this.formacao = formacao;
         this.email = email;
-        this.senha = senha;
-        this.idInstituicao = idInstituicao;
     }
 
     public int getId() {
@@ -90,20 +68,12 @@ public class VoluntarioEmpresa {
         this.nomeCompleto = nomeCompleto;
     }
 
-    public String getPais() {
-        return pais;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setPais(String pais) {
-        this.pais = pais;
-    }
-
-    public String getDocumentacao() {
-        return documentacao;
-    }
-
-    public void setDocumentacao(String documentacao) {
-        this.documentacao = documentacao;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public LocalDate getDataNascimento() {
@@ -122,14 +92,6 @@ public class VoluntarioEmpresa {
         this.telefone = telefone;
     }
 
-    public String getEscolaridade() {
-        return escolaridade;
-    }
-
-    public void setEscolaridade(String escolaridade) {
-        this.escolaridade = escolaridade;
-    }
-
     public String getFormacao() {
         return formacao;
     }
@@ -144,21 +106,5 @@ public class VoluntarioEmpresa {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    public int getIdInstituicao() {
-        return idInstituicao;
-    }
-
-    public void setIdInstituicao(int idInstituicao) {
-        this.idInstituicao = idInstituicao;
     }
 }

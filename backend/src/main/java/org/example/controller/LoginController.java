@@ -1,8 +1,9 @@
 package org.example.controller;
 
-import org.example.dao.VoluntarioDAO;
-import org.example.model.LoginRequest;
-import org.example.model.Voluntario;
+import org.example.dao.InstituicaoDAO;
+import org.example.model.Instituicao;
+import org.example.model.Login;
+import org.example.model.Instituicao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -11,22 +12,35 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api")
 public class LoginController {
 
     @Autowired
-    private VoluntarioDAO voluntarioDAO;
+    private InstituicaoDAO instituicaoDAO;
 
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
+    public ResponseEntity<Object> login(@RequestBody Login login) {
+        try {
+            Instituicao instituicao = instituicaoDAO.buscarInstituicaoPorEmail(login.getEmail().trim());
 
-        Voluntario voluntario = voluntarioDAO.buscarPorEmail(loginRequest.getEmail());
-
-        if (voluntario != null && voluntario.getSenha().equals(loginRequest.getSenha())) {
-            return ResponseEntity.ok("Login realizado com sucesso!");
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Email ou senha inválidos.");
+            if (instituicao != null && instituicao.getSenha().trim().equals(login.getSenha().trim())) {
+                return ResponseEntity.ok(Map.of(
+                        "id", instituicao.getId(),
+                        "nome", instituicao.getNome(),
+                        "message", "Login realizado com sucesso!"
+                ));
+            } else {
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
+                        .body(Map.of("message", "Email ou senha inválidos."));
+            }
+        } catch (Exception e) {
+            // Log do erro para facilitar o diagnóstico
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(Map.of("message", "Ocorreu um erro inesperado ao realizar o login. Tente novamente mais tarde."));
         }
     }
 }

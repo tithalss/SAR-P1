@@ -1,9 +1,10 @@
 package org.example.controller;
 
-import org.example.dao.VoluntarioDAO;
+import org.example.dao.VoluntarioAssociadoDAO;
 import org.example.dao.VoluntarioDAO;
 import org.example.dto.VoluntarioDTO;
 import org.example.model.Voluntario;
+import org.example.repository.VoluntarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
@@ -20,6 +21,8 @@ import java.util.stream.Collectors;
 public class VoluntarioController {
     @Autowired
     private VoluntarioDAO voluntarioDAO;
+    @Autowired
+    private VoluntarioRepository voluntarioRepository;
 
     @GetMapping("/voluntarios")
     public ResponseEntity<?> getAllVoluntarios() {
@@ -43,6 +46,17 @@ public class VoluntarioController {
 
         } catch (Exception e) {
             return new ResponseEntity<>("Erro ao buscar voluntarios: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/countVoluntarios")
+    public long countVoluntarios() {
+        try {
+            return voluntarioRepository.count();
+        } catch (EmptyResultDataAccessException e) {
+            return new ResponseEntity<>("Nenhum registro encontrado.", HttpStatus.NO_CONTENT).getStatusCodeValue();
+        } catch (Exception e) {
+            return new ResponseEntity<>("Erro: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR).getStatusCodeValue();
         }
     }
 }

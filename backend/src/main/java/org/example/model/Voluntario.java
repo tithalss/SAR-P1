@@ -15,21 +15,14 @@ public class Voluntario {
     @Column(name = "nomeCompleto", nullable = false)
     private String nomeCompleto;
 
-    @Column(name = "pais", nullable = false)
-    private String pais;
-
-    @Column(name = "documentacao", unique = true, nullable = false)
-    private String documentacao;
+    @Column(name = "cpf", unique = true, nullable = false)
+    private String cpf;
 
     @Column(name = "dataNascimento", nullable = false)
-    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate dataNascimento;
 
     @Column(name = "telefone")
     private String telefone;
-
-    @Column(name = "escolaridade", nullable = false)
-    private String escolaridade;
 
     @Column(name = "formacao")
     private String formacao;
@@ -37,38 +30,26 @@ public class Voluntario {
     @Column(name = "email", unique = true, nullable = false)
     private String email;
 
-    @Column(name = "senha", nullable = false)
-    private String senha;
 
     public Voluntario() {}
 
-    // Construtor sem o ID
-    public Voluntario(String nomeCompleto, String pais, String documentacao, LocalDate dataNascimento, String telefone,
-                      String escolaridade, String formacao, String email, String senha) {
+    public Voluntario(String nomeCompleto, String cpf, LocalDate dataNascimento, String telefone, String formacao, String email) {
         this.nomeCompleto = nomeCompleto;
-        this.pais = pais;
-        this.documentacao = documentacao;
+        this.cpf = cpf;
         this.dataNascimento = dataNascimento;
         this.telefone = telefone;
-        this.escolaridade = escolaridade;
         this.formacao = formacao;
         this.email = email;
-        this.senha = senha;
     }
 
-    // Construtor com o ID
-    public Voluntario(int id, String nomeCompleto, String pais, String documentacao, LocalDate dataNascimento, String telefone,
-                      String escolaridade, String formacao, String email, String senha) {
+    public Voluntario(int id, String nomeCompleto, String cpf, LocalDate dataNascimento, String telefone, String formacao, String email) {
         this.id = id;
         this.nomeCompleto = nomeCompleto;
-        this.pais = pais;
-        this.documentacao = documentacao;
+        this.cpf = cpf;
         this.dataNascimento = dataNascimento;
         this.telefone = telefone;
-        this.escolaridade = escolaridade;
         this.formacao = formacao;
         this.email = email;
-        this.senha = senha;
     }
 
     public int getId() {
@@ -87,20 +68,12 @@ public class Voluntario {
         this.nomeCompleto = nomeCompleto;
     }
 
-    public String getPais() {
-        return pais;
+    public String getCpf() {
+        return cpf;
     }
 
-    public void setPais(String pais) {
-        this.pais = pais;
-    }
-
-    public String getDocumentacao() {
-        return documentacao;
-    }
-
-    public void setDocumentacao(String documentacao) {
-        this.documentacao = documentacao;
+    public void setCpf(String cpf) {
+        this.cpf = cpf;
     }
 
     public LocalDate getDataNascimento() {
@@ -119,14 +92,6 @@ public class Voluntario {
         this.telefone = telefone;
     }
 
-    public String getEscolaridade() {
-        return escolaridade;
-    }
-
-    public void setEscolaridade(String escolaridade) {
-        this.escolaridade = escolaridade;
-    }
-
     public String getFormacao() {
         return formacao;
     }
@@ -141,29 +106,5 @@ public class Voluntario {
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-    @Override
-    public String toString() {
-        return "Voluntario{" +
-                "id=" + id +
-                ", nomeCompleto='" + nomeCompleto + '\'' +
-                ", pais='" + pais + '\'' +
-                ", documentacao='" + documentacao + '\'' +
-                ", dataNascimento=" + dataNascimento +
-                ", telefone='" + telefone + '\'' +
-                ", escolaridade='" + escolaridade + '\'' +
-                ", formacao='" + formacao + '\'' +
-                ", email='" + email + '\'' +
-                ", senha='" + senha + '\'' +
-                '}';
     }
 }

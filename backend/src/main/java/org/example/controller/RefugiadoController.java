@@ -3,6 +3,8 @@ package org.example.controller;
 import org.example.dao.RefugiadoDAO;
 import org.example.dto.RefugiadoDTO;
 import org.example.model.Refugiado;
+import org.example.repository.RefugiadoRepository;
+import org.example.repository.VoluntarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.http.HttpStatus;
@@ -20,6 +22,9 @@ public class RefugiadoController {
 
     @Autowired
     private RefugiadoDAO refugiadoDAO;
+
+    @Autowired
+    private RefugiadoRepository refugiadoRepository;
 
     @GetMapping("/refugiados")
     public ResponseEntity<?> getAllRefugiados() {
@@ -43,6 +48,17 @@ public class RefugiadoController {
 
         } catch (Exception e) {
             return new ResponseEntity<>("Erro ao buscar refugiados: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/countRefugiados")
+    public long countRefugiados() {
+        try {
+            return refugiadoRepository.count();
+        } catch (EmptyResultDataAccessException e) {
+            return new ResponseEntity<>("Nenhum registro encontrado.", HttpStatus.NO_CONTENT).getStatusCodeValue();
+        } catch (Exception e) {
+            return new ResponseEntity<>("Erro: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR).getStatusCodeValue();
         }
     }
 }

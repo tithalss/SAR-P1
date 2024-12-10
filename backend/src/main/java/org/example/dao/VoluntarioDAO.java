@@ -21,7 +21,7 @@ public class VoluntarioDAO {
         return voluntarioRepository.findAll();
     }
 
-    public Voluntario buscarPorEmail(String email) {
+    public Voluntario buscarVoluntarioPorEmail(String email) {
         return voluntarioRepository.findByEmail(email);
     }
 
@@ -29,7 +29,8 @@ public class VoluntarioDAO {
         voluntarioRepository.save(voluntario);
     }
 
-    public void excluirVoluntario(int id) {
-        voluntarioRepository.deleteById(id);
+    public boolean excluirVoluntario(String email) {
+        voluntarioRepository.deleteByEmail(email);
+        return true;
     }
 }

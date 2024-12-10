@@ -1,19 +1,16 @@
 package org.example.model; // Use o pacote adequado
 
-public class LoginRequest {
+public class Login {
     private String email;
     private String senha;
 
-    // Construtor vazio (opcional, mas recomendado)
-    public LoginRequest() {}
+    public Login() {}
 
-    // Construtor com parâmetros
-    public LoginRequest(String email, String senha) {
+    public Login(String email, String senha) {
         this.email = email;
         this.senha = senha;
     }
 
-    // Getters e Setters
     public String getEmail() {
         return email;
     }
