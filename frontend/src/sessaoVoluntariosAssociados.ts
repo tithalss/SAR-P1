@@ -1,4 +1,4 @@
-interface VoluntarioDTO {
+interface VoluntarioAssociadoDTO {
     nomeCompleto: string;
     dataNascimento: string;
     telefone: string;
@@ -8,10 +8,36 @@ interface VoluntarioDTO {
 
 document.addEventListener('DOMContentLoaded', async () => {
     const endpoint = 'http://localhost:8080/api/voluntariosAssociados';
+    const endpointCard1 = 'http://localhost:8080/api/countVoluntariosAssociados'
+    const endpointCard2 = 'http://localhost:8080/api/countVoluntarios'
+
+    try {
+        const responseCard1 = await fetch(endpointCard1);
+        const dataCard1 = await responseCard1.json();
+
+        const responseCard2 = await fetch(endpointCard2);
+        const dataCard2 = await responseCard2.json();
+
+        const cadastradosBox = document.querySelector('.box1 .number');
+        const pendentesBox = document.querySelector('.box2 .number');
+        const totalBox = document.querySelector('.box3 .number');
+
+        if (cadastradosBox && pendentesBox && totalBox) {
+            const cadastrados = dataCard1;
+            const pendentes = dataCard2;
+            cadastradosBox.textContent = cadastrados.toLocaleString();
+            pendentesBox.textContent = pendentes.toLocaleString();
+
+            const total = cadastrados + pendentes;
+            totalBox.textContent = total.toLocaleString();
+        }
+    } catch (error) {
+        console.error('Erro ao buscar dados:', error);
+    }
 
     try {
         const response = await fetch(endpoint);
-        const data: VoluntarioDTO[] = await response.json();
+        const data: VoluntarioAssociadoDTO[] = await response.json();
 
         const namesContainer = document.querySelector('.data.nome');
         const nascimentoContainer = document.querySelector('.data.data-nascimento');
@@ -21,7 +47,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         const actionContainer = document.querySelector('.data.action');
 
         if (namesContainer && nascimentoContainer && contatoContainer && formacaoContainer && emailContainer && actionContainer) {
-            data.forEach((item: VoluntarioDTO) => {
+            data.forEach((item: VoluntarioAssociadoDTO) => {
                 const nameSpan = document.createElement('span');
                 nameSpan.className = 'data-list';
                 nameSpan.textContent = item.nomeCompleto;
@@ -50,8 +76,23 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const actionButton = document.createElement('button');
                 actionButton.className = 'action-button';
                 actionButton.textContent = 'Excluir';
-                actionButton.addEventListener('click', () => {
-                    alert(`${item.nomeCompleto} adicionado com sucesso!`);
+                actionButton.addEventListener('click', async () => {
+                    try {
+                        const associarResponse = await fetch('http://localhost:8080/api/desassociar?email=' + item.email, {
+                            method: 'POST',
+                        });
+
+                        if (associarResponse.ok) {
+                            alert(`Exclusão de ${item.nomeCompleto} da instituição realizada com sucesso!`);
+                            window.location.reload();
+                        } else {
+                            const errorData = await associarResponse.json();
+                            alert(errorData.message || 'Erro ao desassociar voluntário.');
+                        }
+                    } catch (error) {
+                        console.error('Erro ao desassociar voluntário:', error);
+                        alert('Erro ao desassociar voluntário.');
+                    }
                 });
                 actionContainer.appendChild(actionButton);
             });

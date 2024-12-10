@@ -35,11 +35,11 @@ function enviarFormularioVoluntario(event: Event) {
             return response.json();
         })
         .then((data) => {
-            alert("Usuário cadastrado com sucesso!");
+            alert("Formulá de aplicação registrado com sucesso!");
             window.location.href = "../templates/homePage.html";
         })
         .catch((error) => {
-            console.error("Erro ao cadastrar usuário:", error);
+            console.error("Erro ao cadastrar formulário:", error);
             alert("Erro ao cadastrar usuário. Tente novamente.");
         });
 

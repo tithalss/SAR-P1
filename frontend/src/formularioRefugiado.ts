@@ -35,12 +35,12 @@ function enviarFormularioRefugiado(event: Event) {
             return response.json();
         })
         .then((data) => {
-            alert("Usuário cadastrado com sucesso!");
+            alert("Refugiado cadastrado com sucesso!");
             window.location.href = "../templates/sessaoRefugiados.html";
         })
         .catch((error) => {
             console.error("Erro:", error);
-            alert("Erro ao cadastrar usuário: " + error.message);
+            alert("Erro ao cadastrar refugiado: " + error.message);
         });
 }
 

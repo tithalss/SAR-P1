@@ -8,6 +8,32 @@ interface VoluntarioDTO {
 
 document.addEventListener('DOMContentLoaded', async () => {
     const endpoint = 'http://localhost:8080/api/voluntarios';
+    const endpointCard1 = 'http://localhost:8080/api/countVoluntariosAssociados'
+    const endpointCard2 = 'http://localhost:8080/api/countVoluntarios'
+
+    try {
+        const responseCard1 = await fetch(endpointCard1);
+        const dataCard1 = await responseCard1.json();
+
+        const responseCard2 = await fetch(endpointCard2);
+        const dataCard2 = await responseCard2.json();
+
+        const cadastradosBox = document.querySelector('.box1 .number');
+        const pendentesBox = document.querySelector('.box2 .number');
+        const totalBox = document.querySelector('.box3 .number');
+
+        if (cadastradosBox && pendentesBox && totalBox) {
+            const cadastrados = dataCard1;
+            const pendentes = dataCard2;
+            cadastradosBox.textContent = cadastrados.toLocaleString();
+            pendentesBox.textContent = pendentes.toLocaleString();
+
+            const total = cadastrados + pendentes;
+            totalBox.textContent = total.toLocaleString();
+        }
+    } catch (error) {
+        console.error('Erro ao buscar dados:', error);
+    }
 
     try {
         const response = await fetch(endpoint);
@@ -52,7 +78,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                 actionButton.textContent = 'Associar';
                 actionButton.addEventListener('click', async () => {
                     try {
-                        const associarResponse = await fetch('http://localhost:8080/api/voluntarios/associar?email=' + item.email, {
+                        const associarResponse = await fetch('http://localhost:8080/api/associar?email=' + item.email, {
                             method: 'POST',
                         });
 

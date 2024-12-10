@@ -35,17 +35,17 @@ function enviarFormularioVoluntarioAssociado(event: Event) {
             return response.json();
         })
         .then((data) => {
-            alert("Usuário cadastrado com sucesso!");
+            alert("Voluntário cadastrado com sucesso!");
             window.location.href = "../templates/sessaoVoluntariosAssociados.html";
         })
         .catch((error) => {
             console.error("Erro ao cadastrar usuário:", error);
-            alert("Erro ao cadastrar usuário. Tente novamente.");
+            alert("Erro ao cadastrar voluntário. Tente novamente.");
         });
 
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.querySelector(".login-form") as HTMLFormElement;
-    form.addEventListener("submit", enviarFormularioVoluntario);
+    form.addEventListener("submit", enviarFormularioVoluntarioAssociado);
 });
