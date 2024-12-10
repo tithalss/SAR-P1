@@ -11,20 +11,18 @@
   <h2>
     Cadastre sua Instituição
   </h2>
-  <form class="login-form">
-    <input type="text" name="nomeInstituicao" placeholder="Nome da Instituição "/>
-    <input type="text" name="cnpj" placeholder="CNPJ">
-    <input type="text" name="documentacao" placeholder="CEP"/>
-    <input type="tel" name="cpfRepresentante" placeholder="CPF do Representante">
-    <input type="text" name="idTrabalhador" placeholder="ID do Trabalhador">
-    <input type="text" name="contato" placeholder="Número para contato">
-    <input type="email" name="email" placeholder="Email"/>
-    <input type="password" name="senha" placeholder="Senha"/>
-    <input type="password" placeholder="Confirme a senha"/>
-    <a href="../templates/homePerfil.html" class="custom-button">Cadastrar</a>
+  <form class="login-form" action="http://localhost:8080/api/formulario/instituicao" method="POST">
+    <input type="text" name="nome" placeholder="Nome da Instituição" required/>
+    <input type="text" name="cnpj" placeholder="CNPJ" required/>
+    <input type="text" name="cep" placeholder="CEP" required/>
+    <input type="text" name="telefone" placeholder="Número para contato" required/>
+    <input type="email" name="email" placeholder="Email" required/>
+    <input type="password" name="senha" placeholder="Senha" required/>
+    <input type="password" placeholder="Confirme a senha" required/>
+    <button type="submit" class="custom-button">Cadastrar</button>
     <p class="message">Já possui uma conta? <a href="../templates/login.html">Faça login</a></p>
   </form>
 </div>
-<script src="../dist/formulario.js"></script>
+<script src="../dist/formularioInstituicao.js"></script>
 </body>
 </html>

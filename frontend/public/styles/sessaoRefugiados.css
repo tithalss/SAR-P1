@@ -220,7 +220,7 @@ nav .menu-items{
 
 .activity-data {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     gap: 10px;
     padding: 10px;
     background-color: #f8f8f8;
@@ -254,12 +254,30 @@ nav .menu-items{
     margin-bottom: 5px;
 }
 
+.session-button {
+    background-color: #23b6e2;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    text-align: right;
+    text-decoration: none;
+    margin-left: 1390px;
+    margin-right: 20px;
+    margin-top: 50px;
+    display: block;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
 .custom-button {
     background-color: #23b6e2;
     border: none;
     color: white;
     padding: 15px 30px;
-    text-align: center;
+    justify-content: right;
+    text-align: right;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;

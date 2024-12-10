@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="../styles/login.css">
+</head>
+<body>
+<div class="form">
+    <h2>
+        Cadastre-se como Voluntário
+    </h2>
+    <form class="login-form" action="http://localhost:8080/api/formulario/voluntarioAssociado" method="POST">
+        <input type="text" name="nomeCompleto" placeholder="Nome completo"/>
+        <input type="text" name="cpf" placeholder="CPF"/>
+        <input type="date" name="dataNascimento" placeholder="Data de nascimento">
+        <input type="tel" name="telefone" placeholder="Número de telefone">
+        <input type="text" name="formacao" placeholder="Formação">
+        <input type="email" name="email" placeholder="Email"/>
+        <button type="submit" class="custom-button">Cadastrar</button>
+    </form>
+</div>
+<script src="../dist/formularioVoluntarioAssociado.js"></script>
+</body>
+</html>

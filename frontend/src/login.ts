@@ -10,7 +10,6 @@ async function login(email: string, senha: string) {
 
         if (response.ok) {
             const data = await response.json();
-            console.log('Login bem-sucedido:', data);
             localStorage.setItem('id', data.id);
             window.location.href = '../templates/homePerfil.html';
         } else {
@@ -23,6 +22,11 @@ async function login(email: string, senha: string) {
         console.error('Erro:', error);
     }
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+    const id = localStorage.getItem('id');
+    console.log('Fetched ID after DOM ready:', id);
+});
 
 const loginForm = document.getElementById('loginForm') as HTMLFormElement;
 

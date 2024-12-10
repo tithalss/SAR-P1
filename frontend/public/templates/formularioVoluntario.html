@@ -11,21 +11,16 @@
         <h2>
             Cadastre-se como Voluntário
         </h2>
-        <form class="login-form">
+        <form class="login-form" action="http://localhost:8080/api/formulario/voluntario" method="POST">
             <input type="text" name="nomeCompleto" placeholder="Nome completo"/>
-            <input type="text" name="pais" placeholder="País">
-            <input type="text" name="documentacao" placeholder="CPF"/>
+            <input type="text" name="cpf" placeholder="CPF"/>
             <input type="date" name="dataNascimento" placeholder="Data de nascimento">
             <input type="tel" name="telefone" placeholder="Número de telefone">
-            <input type="text" name="escolaridade" placeholder="Escolaridade">
             <input type="text" name="formacao" placeholder="Formação">
             <input type="email" name="email" placeholder="Email"/>
-            <input type="password" name="senha" placeholder="Senha"/>
-            <input type="password" placeholder="Confirme a senha"/>
-            <a href="../templates/homePerfil.html" class="custom-button">Cadastrar</a>
-            <p class="message">Já possui uma conta? <a href="../templates/login.html">Faça login</a></p>
+            <button type="submit" class="custom-button">Cadastrar</button>
         </form>
     </div>
-    <script src="../dist/formulario.js"></script>
+    <script src="../dist/formularioVoluntario.js"></script>
 </body>
 </html>

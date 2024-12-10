@@ -11,16 +11,16 @@
   <h2>
     Dados do Refugiado
   </h2>
-  <form class="login-form">
-    <input type="text" name="nomeCompleto" placeholder="Nome do Refugiado "/>
-    <input type="text" name="pais" placeholder="País">
-    <input type="text" name="documentacao" placeholder="Documento"/>
+  <form class="login-form" action="http://localhost:8080/api/formulario/refugiado" method="POST">
+    <input type="text" name="nomeCompleto" placeholder="Nome do Refugiado"/>
+    <input type="text" name="pais" placeholder="País de origem">
+    <input type="text" name="motivoRefugio" placeholder="Razão do refugio"/>
     <input type="date" name="dataNascimento" placeholder="Data de nascimento">
     <input type="tel" name="formacao" placeholder="Formação">
-
-    <a href="../templates/seusRefugiados.html" class="custom-button">Cadastrar</a>
+    <input type="email" name="email" placeholder="Email">
+    <button type="submit" class="custom-button">Cadastrar</button>
   </form>
 </div>
-<script src="../dist/formulario.js"></script>
+<script src="../dist/formularioRefugiado.js"></script>
 </body>
 </html>

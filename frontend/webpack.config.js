@@ -4,11 +4,17 @@ module.exports = {
   mode: 'production',  
   entry: {
     login: ['./src/login.ts'],
-    formulario: ['./src/formulario.ts'],
+    formularioInstituicao: ['./src/formularioInstituicao.ts'],
+    formularioVoluntario: ['./src/formularioVoluntario.ts'],
+    formularioVoluntarioAssociado: ['./src/formularioVoluntarioAssociado.ts'],
+    formularioRefugiado: ['./src/formularioRefugiado.ts'],
     perfilEmpresa: ['./src/perfilEmpresa.ts'],
     editarPerfil: ['./src/editarPerfil.ts'],
     homePage: ['./src/homePage.ts'],
     homePerfil: ['./src/homePage.ts'],
+    sessaoRefugiados: ['./src/sessaoRefugiados.ts'],
+    sessaoVoluntarios: ['./src/sessaoVoluntarios.ts'],
+    sessaoVoluntariosAssociados: ['./src/sessaoVoluntariosAssociados.ts'],
   },
   module: {
     rules: [
