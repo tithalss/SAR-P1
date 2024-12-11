@@ -15,13 +15,23 @@ HTML e CSS: Para estrutura e estilização da interface do usuário.
 
 Java: Para a lógica de negócio e implementação do backend.
 
-TypeScript e JavaScript: Para interatividade e funcionalidades do frontend.
+Python Flask: Alternativa para a criação de APIs e aplicações web.
+
+TypeScript: Para interatividade e funcionalidades do frontend.
 
 PostgreSQL: Banco de dados para armazenamento e gerenciamento de informações.
 
 Node.js: Para o gerenciamento do frontend.
 
 Nginx: Para servir a aplicação frontend em produção.
+
+Docker: Para containerização e portabilidade do sistema.
+
+Webpack: Para empacotamento eficiente dos recursos do frontend.
+
+Gradle: Para gerenciamento de dependências e construção do backend Java.
+
+Supabase: Para funcionalidades como autenticação e bancos de dados em tempo real.
 
 
 # Configuração do Backend
